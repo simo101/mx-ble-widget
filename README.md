@@ -14,22 +14,27 @@ Thanks to Don Coleman (https://github.com/don) for the code and tutorials availa
 1. Install the widget in your project
 2. Include the ScanBLE widget in a context wrapper (i.e. Data Grid, List view) on a page. Include the ConnectBLE widget in the context for the 'Scanned Device Types' entity.
 3. Create entities to store device types, scanned devices and device data.
-  3a. Entity: AllowedDeviceTypes
-      Attributes: deviceType , String
-      Purpose: Provide a comma separated list of device type ids to limit the devices to be scanned.
+
+  - Entity: AllowedDeviceTypes
+      - Attributes: deviceType , String
+      - Purpose: Provide a comma separated list of device type ids to limit the devices to be scanned.
       ##### The widget does not currently use this value. It is hardcoded to look for TI CC2650 sensors
-  3b. Entity: ScannedDevices
-      Attributes: deviceID, String
-                  deviceName, String
-                  deviceTyoe, String
-                  deviceMfgData, String , unlimited
-  3c. Entity: DeviceData
-      Attributes: deviceID, String
-                  deviceType, String
-                  characteristicUUID, String
-                  characteristicName, String
-                  dataValue, String
-                  dataUnits, String
+      
+  - Entity: ScannedDevices
+      - Attributes: 
+                  - deviceID, String
+                  - deviceName, String
+                  - deviceTyoe, String
+                  - deviceMfgData, String , unlimited
+  - Entity: DeviceData
+      - Attributes: 
+                  - deviceID, String
+                  - deviceType, String
+                  - characteristicUUID, String
+                  - characteristicName, String
+                  - dataValue, String
+                  - dataUnits, String
+                  
 4. Configure the widget's settings:
     ScanBLE
     1. On the **Input** tab, Configure:
