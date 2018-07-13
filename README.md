@@ -17,7 +17,7 @@ Thanks to Don Coleman (https://github.com/don) for the code and tutorials availa
   3a. Entity: AllowedDeviceTypes
       Attributes: deviceType , String
       Purpose: Provide a comma separated list of device type ids to limit the devices to be scanned.
-      # The widget does not currently use this value. It is hardcoded to look for TI CC2650 sensors
+      ##### The widget does not currently use this value. It is hardcoded to look for TI CC2650 sensors
   3b. Entity: ScannedDevices
       Attributes: deviceID, String
                   deviceName, String
