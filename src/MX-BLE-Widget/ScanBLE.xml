@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="MX-BLE-Widget.widget.ScanBLE" needsEntityContext="true" 
+    xmlns="http://www.mendix.com/widget/1.0/">
+    <name>ScanBLE</name>
+    <description>Scan for specified bluetooth low energy devices from Mendix mobile applications</description>
+    <icon />
+    <properties>
+	    <!--<property key="deviceTypeListEntity" type="entity" required="false" allowNonPersistableEntities="true">
+            <caption>Object storing list of device types</caption>
+            <category>Input</category>
+            <description>Entity that has a list of device types</description>
+        </property>-->
+		<property key="deviceTypeList" type="attribute">
+			<caption>BLE Device Types</caption>
+			<category>Input</category>
+			<description>Comma separated list of BLE devices to scan. Example "AA80"</description>
+			<attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+		</property>
+		        <property key="scanTime" type="integer" required="true" defaultValue="5">
+            <caption>Scan Time (seconds)</caption>
+            <category>Input</category>
+            <description></description>
+        </property>
+        <property key="objectToCreate" type="entity" required="false" allowNonPersistableEntities="true">
+            <caption>Object to Create</caption>
+            <category>Output</category>
+            <description>Return type object to create</description>
+        </property>
+        <property key="deviceIDField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device ID Field</caption>
+            <category>Output</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+		<property key="deviceNameField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device Name Field</caption>
+            <category>Output</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <property key="deviceTypeField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device Type Field</caption>
+            <category>Output</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>	
+        <property key="deviceMfgDataField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device Mfg Data Field</caption>
+            <category>Output</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>			
+        <property key="microflowToCall" type="microflow" required="false" entityProperty="objectToCreate">
+            <caption>Microflow To Call</caption>
+            <category>Events</category>
+            <description>Should receive an instance of "Object to Create" as a parameter</description>
+            <returnType type="Void"></returnType>
+        </property>
+		        <property key="buttonLabel" type="string" required="true">
+            <caption>Caption</caption>
+            <category>Button</category>
+            <description/>
+        </property>
+        <property key="buttonClass" type="string" required="false">
+            <caption>Class</caption>
+            <category>Button</category>
+            <description/>
+        </property>
+    </properties>
+</widget>

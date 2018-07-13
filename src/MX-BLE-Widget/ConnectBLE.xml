@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="MX-BLE-Widget.widget.ConnectBLE" needsEntityContext="true" 
+    xmlns="http://www.mendix.com/widget/1.0/">
+    <name>ConnectBLE</name>
+    <description>Connect to  specified bluetooth low energy devices from Mendix mobile applications</description>
+    <icon />
+    <properties>
+        <property key="bleDeviceId" type="attribute">
+            <caption>BLE Device ID</caption>
+            <category>Input</category>
+            <description></description>
+			            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+       <property key="objectToCreate" type="entity" required="false" allowNonPersistableEntities="true">
+            <caption>Object to Create</caption>
+            <category>Device Data</category>
+            <description>Return type object to create</description>
+        </property>
+        <property key="deviceIDField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device ID Field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+		<property key="deviceTypeField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Device Type Field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+        <property key="serviceUUID" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Service  UUID Field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>
+		<property key="characteristicNameField" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Characteristic Name field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>		
+        <property key="serviceData" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Service Data Field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>	
+        <property key="serviceDataUnits" type="attribute" required="false" isPath="no" entityProperty="objectToCreate">
+            <caption>Service Data  Units Field</caption>
+            <category>Device Data</category>
+            <description></description>
+            <attributeTypes>
+                <attributeType name="String" />
+            </attributeTypes>
+        </property>			
+        <property key="microflowToCall" type="microflow" required="false" entityProperty="objectToCreate">
+            <caption>Microflow To Call</caption>
+            <category>Events</category>
+            <description>Should receive an instance of "Object to Create" as a parameter</description>
+            <returnType type="Void"></returnType>
+        </property>
+    </properties>
+</widget>
