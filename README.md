@@ -16,24 +16,24 @@ Thanks to Don Coleman (https://github.com/don) for the code and tutorials availa
 3. Create entities to store device types, scanned devices and device data.
 
   - Entity: AllowedDeviceTypes
-      - Attributes: deviceType , String
+    - Attributes: deviceType , String
       - Purpose: Provide a comma separated list of device type ids to limit the devices to be scanned.
       ##### The widget does not currently use this value. It is hardcoded to look for TI CC2650 sensors
       
   - Entity: ScannedDevices
-      - Attributes: 
-                  - deviceID, String
-                  - deviceName, String
-                  - deviceTyoe, String
-                  - deviceMfgData, String , unlimited
+    - Attributes: 
+        - deviceID, String
+        - deviceName, String
+        - deviceType, String
+        - deviceMfgData, String , unlimited
   - Entity: DeviceData
-      - Attributes: 
-                  - deviceID, String
-                  - deviceType, String
-                  - characteristicUUID, String
-                  - characteristicName, String
-                  - dataValue, String
-                  - dataUnits, String
+    - Attributes: 
+         - deviceID, String
+         - deviceType, String
+         - characteristicUUID, String
+         - characteristicName, String
+         - dataValue, String
+         - dataUnits, String
                   
 4. Configure the widget's settings:
     ScanBLE
