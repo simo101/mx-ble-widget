@@ -9,6 +9,8 @@ Follow instructions at https://docs.mendix.com/howto/mobile/ to deploy your hybr
 
 Thanks to Don Coleman (https://github.com/don) for the code and tutorials available at https://github.com/don/phonegap-ble-workshop
 
+Watch the demo at https://youtu.be/eLvtzRvMy40
+
 ### Installation
 
 1. Install the widget in your project
