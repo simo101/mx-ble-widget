@@ -67,11 +67,13 @@ define([
         },
 
         postCreate: function() {
-            logger.debug(this.id + ".postCreate");
+			logger.debug(this.id + ".postCreate");
+			
+			if (this.connectButtonClass) dojoClass.add(this.connectBtn, this.connectButtonClass);
+			if (this.disconnectButtonClass) dojoClass.add(this.disconnectBtn, this.disconnectButtonClass);
 
-			//if (this.buttonClass) dojoClass.add(this.connectBtn, this.buttonClass);
-
-            //this.connectBtn.textContent = this.buttonLabel ;
+			this.connectBtn.textContent = this.connectButtonLabel;
+			this.disconnectBtn.textContent = this.disconnectButtonLabel;
 			
 			this._updateRendering();
 			_contextObj = context.getTrackObject();
@@ -113,12 +115,12 @@ define([
                     lang.hitch(this,function(data) {
 						//mx.ui.info("device found, connecting: " + this._myDevice , true);
                         self._onConnect(data, this._myDevice);
-						//mx.ui.info("device found, connected: " + this._myDevice , true);
+						mx.ui.info("Connected to device: " + this._myDevice , true);
                     }),
                     lang.hitch(this,function(err) {
-                        console.log('device found, error connecting');
+                        console.log('Error connecting to device');
                         console.log(err);
-						mx.ui.info("device found, error connecting " + this._myDevice + " :error: " + err, true);
+						mx.ui.info("Error connecting to device" + this._myDevice + " :error: " + err, true);
                     })
                 )
 			 //ble.connect(this._myDevice, this._onConnect, this._onError);
@@ -271,10 +273,10 @@ define([
 			var rawInfraredTemp = data[0];
 			var rawAmbientTemp = data[1];
 
-			var unit = 'F';
+			var unit = 'C';
 			//mx.ui.info("Calculating temp value for : " + rawAmbientTemp, true);
-			var infraredTemp = this._toFahrenheit(rawInfraredTemp);
-			var ambientTemp = this._toFahrenheit(rawAmbientTemp);
+			var infraredTemp = this._toCelsius(rawInfraredTemp);
+			var ambientTemp = this._toCelsius(rawAmbientTemp);
 			
 			//mx.ui.info("Saving temp data for : " + this._myDevice, true);
         // var unit = 'C';
@@ -311,15 +313,19 @@ define([
 					obj.set(this.serviceData,characteristicValue);
 					obj.set(this.serviceDataUnits,characteristicUnits);
 					
-					mx.data.commit({
-							mxobj: obj,
-							callback: function() {
-									console.log("Object committed");
-								},
-							error: function(e) {
-								console.error("Could not commit object:", e);
-							}
-							});
+					mx.data.action({
+						params: {
+							applyto: "selection",
+							actionname: this.microflowToCall,
+							guids: [obj.getGuid()]
+						},
+						origin: this.mxform,
+						callback: function() {
+						},
+						error: function(error) {
+							alert(error.message);
+						}
+					});
 							
 				}),
 				err: function(e) {

@@ -72,5 +72,27 @@
             <description>Should receive an instance of "Object to Create" as a parameter</description>
             <returnType type="Void"></returnType>
         </property>
+
+        <property key="connectButtonLabel" type="string" required="true">
+            <caption>Connect Button Label</caption>
+            <category>Button</category>
+            <description/>
+        </property>
+        <property key="connectButtonClass" type="string" required="false">
+            <caption>Connect Button Class</caption>
+            <category>Button</category>
+            <description/>
+        </property>
+
+        <property key="disconnectButtonLabel" type="string" required="true">
+            <caption>Disconnect Button Label</caption>
+            <category>Button</category>
+            <description/>
+        </property>
+        <property key="disconnectButtonClass" type="string" required="false">
+            <caption>Disconnect Button Class</caption>
+            <category>Button</category>
+            <description/>
+        </property>
     </properties>
 </widget>
